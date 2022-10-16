@@ -1,5 +1,3 @@
-
-
 - name: "DNS | installing bind configuration "
   template:
       src: etc/bind/named.conf.options.j2
@@ -23,4 +21,3 @@
   service:
       name: named
       state: restarted  
-

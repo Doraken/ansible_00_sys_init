@@ -21,7 +21,6 @@
   when: not ansible_version.full is version_compare('2.3', '>=')
   tags:
       - always
-
 - include: install.yml
   become: true
   tags:
@@ -39,4 +38,3 @@
   tags:
       - dns_task
       - always  
-

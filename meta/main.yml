@@ -8,7 +8,6 @@ galaxy_info:
   role_name: sys_00_init
   namespace: doraken
 
-
   platforms:
     - name: Ubuntu
       versions:
@@ -17,4 +16,3 @@ galaxy_info:
   galaxy_tags:
     - system
     - user
-

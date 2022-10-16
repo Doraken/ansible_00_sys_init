@@ -1,0 +1,15 @@
+# playbook made by Arnaud Crampet 
+ansible_distribution: Ubuntu
+ansible_os_family: Debian
+
+DNS1_server: 8.8.8.8
+DNS2_server: 154.15.252.138
+DNS3_server: 154.15.252.140
+DNS4_server: 154.15.252.135
+
+
+
+
+
+
+

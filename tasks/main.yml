@@ -1,0 +1,42 @@
+---
+# playbook made by Arnaud Crampet 
+#- name: "clear SSH keys"
+#  command: "echo # > /etc/ssh/ssh_known_hosts"
+
+#- name: "Get SSH keys"
+#  command: "ssh-keyscan -H ${servers} >> /etc/ssh/ssh_known_hosts"
+#  with_items: "{{ groups['all'] }}"
+- name: Check OS version and family
+  fail:
+      msg: "This role can only be run agaist Ubuntu 20.04. {{ ansible_distribution }} {{ ansible_distribution_major_version }} is not supported."
+  when:
+      - not ansible_distribution == "Ubuntu"
+      - not ansible_distribution_release == "focal"
+  tags:
+      - always
+
+- name: Check ansible version
+  fail:
+      msg: You must use ansible 2.3 or greater!
+  when: not ansible_version.full is version_compare('2.3', '>=')
+  tags:
+      - always
+
+- include: install.yml
+  become: true
+  tags:
+      - install_tasks
+      - always
+
+- include: dns.yml
+  become: true
+  tags:
+      - dns_task
+      - always
+
+- include: reboot.yml
+  become: true 
+  tags:
+      - dns_task
+      - always  
+

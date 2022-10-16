@@ -1,0 +1,20 @@
+- name: "SYSTEM | Install needed package"
+  apt:
+      name:
+          - ca-certificates 
+          - curl 
+          - gnupg 
+          - lsb-release
+          - mlocate
+          - python3-pip
+          - lvm2
+          - iptables
+          - iptables-persistent
+          - sshguard
+          - ansible 
+      state: present
+      install_recommends: false
+  tags:
+     - INSTALL
+
+

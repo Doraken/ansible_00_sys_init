@@ -1,0 +1,26 @@
+
+
+- name: "DNS | installing bind configuration "
+  template:
+      src: etc/bind/named.conf.options.j2
+      dest: /etc/bind/named.conf.options
+  tags:
+      - dns_task
+
+- name: "DNS | deploying reslve.conf  configuration "
+  template:
+      src: etc/resolv.conf.j2
+      dest: /etc/resolv.conf
+  tags:
+      - dns_task
+
+- name: "DNS | Stopping systemd-resolved"
+  service:
+      name: systemd-resolved
+      state: stopped  
+
+- name: "DNS | restarting bind "
+  service:
+      name: named
+      state: restarted  
+

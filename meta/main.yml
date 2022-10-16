@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: "Arnaud Crampet AKA Doraken"
+  description: "Ansible role init ubuntu server"
+  company: "none"
+  license: MIT
+  min_ansible_version: "1.0"
+  role_name: sys_00_init
+  namespace: doraken
+
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+
+  galaxy_tags:
+    - system
+    - user
+

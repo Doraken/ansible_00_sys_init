@@ -5,7 +5,7 @@
   tags:
       - dns_task
 
-- name: "DNS | deploying reslve.conf  configuration "
+- name: "DNS | deploying resolve.conf  configuration "
   template:
       src: etc/resolv.conf.j2
       dest: /etc/resolv.conf

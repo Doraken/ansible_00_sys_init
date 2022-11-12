@@ -12,6 +12,7 @@
           - iptables-persistent
           - sshguard
           - ansible 
+          - bind9
       state: present
       install_recommends: false
   tags:

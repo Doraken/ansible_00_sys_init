@@ -33,9 +33,20 @@
       - dns_task
       - always
 
+- include: ipv6-disable.yml
+  become: true 
+  tags:
+      - dns_task
+      - always  
+
+- include: ipv6-grub-disable.yml
+  become: true 
+  tags:
+      - dns_task
+      - always  
+
 - include: reboot.yml
   become: true 
-  when: RebootServer
   tags:
       - dns_task
       - always  

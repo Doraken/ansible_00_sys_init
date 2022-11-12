@@ -1,0 +1,20 @@
+ - name: Return motd to registered var
+   command: cat /etc/motd
+   register: mymotd
+
+ - name: "rmmodipv6" 
+   command: rmmod ipv6
+
+ - name: "modipv6"
+   command: "modprobe ipv6"
+   failed_when: false
+
+ - name: "restart network"
+   ansible.builtin.service: name=network state=restarted
+  
+ - name: "restart NetworkManager"
+   ansible.builtin.service: name=NetworkManager state=restarted
+
+ - name: grub2-mkconfig
+   command: "grub2-mkconfig -o /boot/grub2/grub.cfg" 
+

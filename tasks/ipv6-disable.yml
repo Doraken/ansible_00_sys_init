@@ -1,6 +1,3 @@
----
-
-## either disable
 - name: Disable IPv6 with sysctl
   sysctl: name={{ item }} value=1 state=present reload=yes
   with_items:
